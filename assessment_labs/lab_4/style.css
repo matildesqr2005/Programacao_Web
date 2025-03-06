@@ -128,7 +128,7 @@ aside > p, h3 {
     margin: 5px;
 }
 
-.footer {
+footer {
     display: flex;
     flex-direction: row;
     position: fixed;
