@@ -5,19 +5,23 @@
 .container {
     padding: 10px;
     display: flex;
-    justify-content:space-between;
+    justify-content:space-evenly;
 }
 
 article {
-    border: var(border);
+    /* border: var(border);
     border-style: solid;
-    width: 300px;
-    height: 200px;
+    border-radius: 10px; */
+    width: 350px;
+    height: 250px;
+    padding: 5px;
 }
 
 aside {
-    border: var(border);
+    /*border: var(border);
     border-style: solid;
-    width: 200px;
-    height: 200px;
+    border-radius: 10px;*/
+    width: 150px;
+    height: 250px;
+    padding: 5px;
 }
