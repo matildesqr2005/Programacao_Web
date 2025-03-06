@@ -23,13 +23,106 @@ form{
     text-align: left;
 }
 html, body{
+    scroll-behavior: smooth;
     margin: 0px;
     padding: 0px;
     width: 100%;
     height: 100%;
-    font-family:'Franklin Gothic Medium';
+    font-family:'Droid Serif', serif;
 }
 
+/* To not display when links have been visited */
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+nav a{
+    padding-left: 3%;
+    padding-right: 3%;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+/* header ----------------------------------------------------------------- */
+/* Top bar div, includes top_bar_nav navigation*/
+#top_bar{
+    z-index: 99;
+    display:flex; /* so nav bar doesn't escape >:) */
+    align-items: center;
+    justify-content: center;
+    flex-wrap:nowrap;
+
+    width: 100%;
+    height:5%;
+    background-color: rgb(215, 255, 236);
+    position: sticky;
+    top: 0;
+
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+#top_bar_nav{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    margin: 0 auto;
+    width:auto; 
+
+    background-color: transparent;
+}
+
+/* Title and subtitle */
+.header{
+    z-index: 2;
+    position:relative;
+    flex-grow:1; /* So it doesn't step outside of header element */
+    align-content: center;
+
+    height: 350px;
+    background-color: transparent;
+    text-align: center;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+    padding:0;
+}
+
+.header-text {
+    font-weight: bold;
+    font-size: x-large;
+    color: aliceblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: max-content;
+    margin:0;
+    padding:0;
+    text-align: center;
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+  }
+
+.bg-image{
+    z-index: 1;
+    width: 100%;
+    height:100%;
+    position:relative;
+    /* For background image ....*/
+    background-image: url("https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dhttps://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    transition:0.3s;
+}
+.bg-image:hover{
+    filter: blur(4px) brightness(80%);
+}
+
+
+
+/* end of header ---------------------------------------------------------- */
 .submit{
     font-size: 15px;
     color: var(ba);
@@ -112,31 +205,6 @@ div{
     text-align: center;
     display: flex;
     flex-direction: column;
-}
-header{
-    width: 100%;
-    height: 50%;
-    background-color: red;
-}
-/* Top bar div*/
-#top_bar{
-    width: 100%;
-    height:15%;
-    background-color: aqua;
-    align-content: center;
-}
-#top_bar_nav{
-    text-align: center; 
-    word-spacing: 50px;
-    background-color: blue;
-}
-/* Title and subtitle */
-#header{
-    align-content: center;
-    width: 100%;
-    height: 50%;
-    background-color: greenyellow;
-    text-align: center;
 }
 
 .container {
