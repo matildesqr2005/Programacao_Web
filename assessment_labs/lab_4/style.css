@@ -32,16 +32,15 @@ form{
     border-radius: 30px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: auto;
-    height: auto;
+    width: fit-content;
+    height: fit-content;
     margin: 300px;
 }
 
 input{
-    border-radius: 15px;
     border-color: var(border);
     text-align: center;
-
+    size: 30px;
 }
 
 div{
