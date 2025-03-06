@@ -1,12 +1,19 @@
+:root{
+    border: black;
+}
 form{
     text-align: center;
     display: block;
 }
 
 .submit{
+    font-size: 15px;
+    font-family: cursive;
     padding: 15px 15px;
     border-radius: 15px;
+    border-color: var(border);
     cursor: pointer;
+    width: 200px;
 }
 
 .submit:hover{
@@ -25,7 +32,12 @@ form{
 
 input{
     border-radius: 15px;
-    border-color: black;
+    border-color: var(border);
     text-align: center;
 
+}
+
+div{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
