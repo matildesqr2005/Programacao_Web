@@ -66,7 +66,7 @@ textarea{
     border-color: var(--border-color);
     text-align: center;
     width: 100px auto;
-    border-radius: 10px;
+    border-radius: 15px;
     height: 30px ;
     
 }
@@ -147,7 +147,7 @@ header{
 
 article {
     border: var(border);
-    border-radius: 30px;
+    border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     width: 350px;
     height: 250px;
@@ -155,7 +155,7 @@ article {
 
 aside {
     border: var(border);
-    border-radius: 30px;
+    border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     width: 150px;
     height: 250px;
