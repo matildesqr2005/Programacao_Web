@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Puro Pet</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="./media/";>
     </head>
     <body>
         <header>
@@ -23,22 +24,74 @@
         </header>
 
         <section>
-            <form>
-                <lable>Nome</lable>
-                <input type="text">
-                <br>
+            <div class="container">
+                <article>
+                    <h2>Titulo do artigo</h2>
 
-                <label>E-mail</label>
-                <input type="email">
-                <br>
+                    <p> Informações que vamos por no artigo.</p>
+                </article>
 
-                <label>Mensagem</label>
-                <input type="text">
-            </form>
+                <aside>
+                    <h3>Curiosidades sobre a loja</h3>
+
+                    <p> Informações que vamos por no aside.</p>
+                </aside>
+            </div>
+            
+
+            <div class="align">
+                <h2>Dúvidas</h2>
+                <div class="box_form">
+                    <div>
+                        <h3>Tens uma Questão?</h3>
+                        <p>Estamos aqui para ajudar</p>
+                        <br>
+                        <div class="container_img">
+                            <p>
+                                <img src="media/mail.ico"> hbckbcnan@jnbnkja.pt
+                            </p>
+                        </div>
+                        <div class="container_img">
+                                <img src="media/telephone.ico"> 
+                        </div>
+                        
+                    </div>
+                    <form>
+                        <div class="form_name">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" required>
+
+                            <label for="lastname">Sobrenome</label>
+                            <input type="text" id="lastname" required>
+                        </div>
+
+                        <div>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" required>
+                        </div>  
+
+                        <div>
+                            <label for="message">Mensagem</label>
+                            <textarea id="message"></textarea>
+                        </div>
+
+                        <div>
+                            <button class="submit" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <footer>
-
+            <p class="copyright">
+                Puro Pet, 2025 &copy; Todos os direitos reservados
+            </p>
+            <div class="conts">
+                <p>Contactos:</p>
+                <p>+351000000000</p>
+                <p>nossoemail@puro.loja</p> 
+            </div>
         </footer>
     </body>
 
