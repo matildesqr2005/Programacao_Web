@@ -1,0 +1,23 @@
+.root{
+    border: black;
+}
+
+.container {
+    padding: 10px;
+    display: flex;
+    justify-content:space-between;
+}
+
+article {
+    border: var(border);
+    border-style: solid;
+    width: 300px;
+    height: 200px;
+}
+
+aside {
+    border: var(border);
+    border-style: solid;
+    width: 200px;
+    height: 200px;
+}
