@@ -127,3 +127,30 @@ article > p, h2 {
 aside > p, h3 {
     margin: 5px;
 }
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.copyright {
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    bottom: 0;
+}
+
+.conts {
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+}
