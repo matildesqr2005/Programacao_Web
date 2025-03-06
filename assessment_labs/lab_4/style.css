@@ -97,3 +97,33 @@ header{
     background-color: greenyellow;
     text-align: center;
 }
+
+.container {
+    padding: 10px;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+article {
+    border: var(border);
+    border-style: solid;
+    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+}
+
+aside {
+    border: var(border);
+    border-style: solid;
+    border-radius: 10px;
+    width: 150px;
+    height: 250px;
+}
+
+article > p, h2 {
+    margin: 5px;
+}
+
+aside > p, h3 {
+    margin: 5px;
+}
