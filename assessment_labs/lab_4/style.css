@@ -37,7 +37,7 @@ a, a:visited, a:hover, a:active {
     color: inherit;
     text-decoration: none;
 }
-nav a, .nav-drop-down {
+nav a, .nav-drop-down, nav button {
     padding-left: 3%;
     padding-right: 3%;
     flex-shrink: 0;
@@ -88,10 +88,10 @@ nav a, .nav-drop-down {
     text-align: center;
     overflow: hidden;
 }
-.nav-drop-down-button, .nav-to-top-button{
+.nav-drop-down-button, .nav-to-top-button, .nav-to-contact-button{
     text-align: center;
     
-    
+    width:fit-content;
     height: max-content;
     font-size:inherit;
     font-family: inherit;
@@ -103,7 +103,7 @@ nav a, .nav-drop-down {
     outline: none;
     background-color:transparent;
 }
-.nav-to-top-button:hover{cursor:pointer;}
+.nav-to-top-button:hover, .nav-to-contact-button:hover{cursor:pointer;}
 .nav-drop-down-content{
     display:none;
     position:absolute;

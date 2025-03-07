@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Puro Pet</title>
-        <script type="text/javascript" src="scrollToTop.js" defer></script>
+        <script type="text/javascript" src="scroll.js" defer></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="./media/";>
         <link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 <body>
+    <!-- Top bar is part of header, but for techical reasons it had to be placed outside -->
     <!-- Top bar includes nav bar and (soon) icon -->
     <div class="top-bar">
         <nav id="top-bar-nav">
@@ -33,7 +34,7 @@
                     <a href="https://www.google.com">Medicamentos</a>
                 </div>
             </div>
-            <a href="#contact_form">Contacte-nos</a>
+            <button class="nav-to-contact-button" onclick="scrollToContact()">Contacte-nos</button>
         </nav>
     </div>
 
