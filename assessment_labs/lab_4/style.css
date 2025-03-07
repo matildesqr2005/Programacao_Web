@@ -24,6 +24,7 @@ form{
 }
 html, body{
     scroll-behavior: smooth;
+    overflow-y: auto; /* < I found out not having this makes the top bar hide after passing through header */
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -45,19 +46,24 @@ nav a, .nav-drop-down {
 /* header ----------------------------------------------------------------- */
 /* Top bar div, includes top_bar_nav navigation*/
 .top-bar{
-    z-index: 99;
-    display:flex; /* So things dont come out of nav bar */
+    display:flex; /* So things like text dont come out of top bar */
+    /* Centering items inside */
     align-items: center;
     justify-content: center;
     flex-wrap:nowrap;
-
-    width: 100%;
-    height:5%;
-    background-color: rgb(215, 255, 242);
+    align-self: flex-start;
+    
+    /* So nav bar goes along when scrolling ^.^ */
+    z-index: 99;
     position: sticky;
     top: 0;
     margin:0;
 
+    /* Bar height is relative to screen size */
+    width: 100%;
+    height:5%;
+
+    background-color: rgb(215, 255, 242);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 #top-bar-nav{
@@ -72,6 +78,7 @@ nav a, .nav-drop-down {
 
     background-color: transparent;
 }
+
 /* For nav drop downs -------------------------------------------*/
 .nav-drop-down{
     height:100%;
@@ -81,7 +88,7 @@ nav a, .nav-drop-down {
     text-align: center;
     overflow: hidden;
 }
-.nav-drop-down-button{
+.nav-drop-down-button, .nav-to-top-button{
     text-align: center;
     
     
@@ -96,6 +103,7 @@ nav a, .nav-drop-down {
     outline: none;
     background-color:transparent;
 }
+.nav-to-top-button:hover{cursor:pointer;}
 .nav-drop-down-content{
     display:none;
     position:absolute;

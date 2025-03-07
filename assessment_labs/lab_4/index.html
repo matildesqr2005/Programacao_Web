@@ -3,19 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>Puro Pet</title>
+        <script type="text/javascript" src="scrollToTop.js" defer></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="./media/";>
         <link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-<body id="start">
+<body>
     <!-- Top bar includes nav bar and (soon) icon -->
     <div class="top-bar">
         <nav id="top-bar-nav">
-            <a href="#start">Início</a>
+            <button class="nav-to-top-button" onclick="scrollToTop()">Início</button>
             <div class="nav-drop-down">
-                <button class="nav-drop-down-button">Animais
-                    <i class="fa fa-angle-down"></i>
+                <button class="nav-drop-down-button">Animais <i class="fa fa-angle-down"></i>
                 </button>
                 <div class="nav-drop-down-content">
                     <a href="https://www.google.com">Animais Imaginários</a>
@@ -23,8 +23,7 @@
                 </div>
             </div>
             <div class="nav-drop-down">
-                <button class="nav-drop-down-button">Produtos
-                    <i class="fa fa-angle-down"></i>
+                <button class="nav-drop-down-button">Produtos <i class="fa fa-angle-down"></i>
                 </button>
                 <div class="nav-drop-down-content">
                     <a href="https://www.google.com">Alimentação</a>
