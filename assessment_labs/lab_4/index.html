@@ -3,18 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <title>Puro Pet</title>
+        <script type="text/javascript" src="scroll.js" defer></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="./media/";>
         <link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 <body>
+    <!-- Top bar is part of header, but for techical reasons it had to be placed outside -->
     <!-- Top bar includes nav bar and (soon) icon -->
-    <div id="top_bar">
-        <nav id="top_bar_nav">
-            <a href="index.html">Página Inicial</a>
-            <a href="https://www.google.com">Animais</a>
-            <a href="https://www.google.com">Produtos</a>
-            <a href="#contact_form">Contacte-nos</a>
+    <div class="top-bar">
+        <nav id="top-bar-nav">
+            <button class="nav-to-top-button" onclick="scrollToTop()">Início</button>
+            <div class="nav-drop-down">
+                <button class="nav-drop-down-button">Animais <i class="fa fa-angle-down"></i>
+                </button>
+                <div class="nav-drop-down-content">
+                    <a href="https://www.google.com">Animais Imaginários</a>
+                    <a href="https://www.google.com">Animais Reais</a>
+                </div>
+            </div>
+            <div class="nav-drop-down">
+                <button class="nav-drop-down-button">Produtos <i class="fa fa-angle-down"></i>
+                </button>
+                <div class="nav-drop-down-content">
+                    <a href="https://www.google.com">Alimentação</a>
+                    <a href="https://www.google.com">Cósmeticos</a>
+                    <a href="https://www.google.com">Habitat</a>
+                    <a href="https://www.google.com">Higiene</a>
+                    <a href="https://www.google.com">Medicamentos</a>
+                </div>
+            </div>
+            <button class="nav-to-contact-button" onclick="scrollToContact()">Contacte-nos</button>
         </nav>
     </div>
 
@@ -23,7 +43,7 @@
         
         <div class="header-text">
             <h1>Puro Pet</h1>
-            <p>Loja de Animais</p>
+            <p>Uma Loja de Animais Complexa</p>
         </div>
     </header>
         
