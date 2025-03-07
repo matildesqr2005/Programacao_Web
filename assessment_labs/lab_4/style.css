@@ -1,11 +1,26 @@
 :root{
     --border-color: black;
-
+    --botton-color: white;
 }
+
+h3{
+    font-weight: bold;
+}
+
+p{
+    font-family: 'Times New Roman';
+}
+
 form{
     text-align: center;
     display: flex;
     flex-direction: column;
+}
+
+.form_style{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 html, body{
     scroll-behavior: smooth;
@@ -110,12 +125,13 @@ nav a{
 /* end of header ---------------------------------------------------------- */
 .submit{
     font-size: 15px;
+    color: var(ba);
     font-family: cursive;
     padding: 15px 15px;
     border-radius: 15px;
-    border-color: var(border);
+    background-color: var(--botton-color);
     cursor: pointer;
-    width: 200px;
+    width: 350px;
 }
 
 .submit:hover{
@@ -127,39 +143,64 @@ nav a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap:20px; /* espaço entre os elementos*/
+    gap: 100px ; /* espaço entre os elementos*/
     padding: 30px;
     border: 5px var(--border-color);
     border-radius: 30px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: fit-content;
+    max-width: 725px;
     height: fit-content;
     margin: 50px auto;
 }
 
-input{
+textarea{
     border-color: var(--border-color);
     text-align: center;
-    size: 30px;
+    width: 100px auto;
+    border-radius: 15px;
+    height: 30px ;
+    max-width: 725px;
+    
+}
+input{
+    text-align: center;
+    width: 100px auto;
+    border-radius: 10px;
+    height: 30px ;
 }
 
 div{
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
-.container_img img {
+.container_img{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 15px;
+    text-decoration: underline;
+}
+.container_img img {
     width: 20px;
     height: 20px;
 }
 
-.form_name{
+.form_style{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+}
+
+.form_style_name{
     display: flex;
     flex-direction: row;
+    text-align: center;
+    gap: 10px;
 }
+
 
 .align{
     text-align: center;
@@ -175,16 +216,16 @@ div{
 
 article {
     border: var(border);
-    border-style: solid;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     width: 350px;
     height: 250px;
 }
 
 aside {
     border: var(border);
-    border-style: solid;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     width: 150px;
     height: 250px;
 }
