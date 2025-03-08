@@ -35,12 +35,16 @@ form{
 html, body{
     background-color: var(--background);
     scroll-behavior: smooth;
+    overflow-x:hidden;
     overflow-y: auto; /* < I found out not having this makes the top bar hide after passing through header */
     margin: 0px;
     padding: 0px;
     width: 100%;
     height: 100%;
     font-family:'Droid Serif', serif;
+}
+header{
+    width:100%;
 }
 /* To not display when links have been visited */
 a, a:visited, a:hover, a:active {
