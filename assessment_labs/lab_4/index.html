@@ -14,18 +14,24 @@
         <!-- Top bar that includes navigation with some twists (technically it's part of the header!!!) -->
         <div class="top-bar">
             <nav id="top-bar-nav">
-                <button class="nav-to-top-button" onclick="scrollToTop()">Início</button>
-                <div class="nav-drop-down">
-                    <button class="nav-drop-down-button">Animais <i class="fa fa-angle-down"></i>
-                    </button>
+                <button class="nav-button" onclick="scrollToTop()">Início</button>
+
+                <div class="nav-drop-down" id="animals">
+                    <a href="https://www.google.com">
+                        <button class="nav-drop-down-button" id="btn-animals">Animais <i class="fa fa-angle-down"></i>
+                        </button>
+                    </a>
                     <div class="nav-drop-down-content">
                         <a href="https://www.google.com">Animais Imaginários</a>
                         <a href="https://www.google.com">Animais Reais</a>
                     </div>
                 </div>
-                <div class="nav-drop-down">
-                    <button class="nav-drop-down-button">Produtos <i class="fa fa-angle-down"></i>
-                    </button>
+
+                <div class="nav-drop-down" id="products">
+                    <a href="https://www.google.com">
+                        <button class="nav-drop-down-button" id="btn-products">Produtos <i class="fa fa-angle-down"></i>
+                        </button>
+                    </a>
                     <div class="nav-drop-down-content">
                         <a href="https://www.google.com">Alimentação</a>
                         <a href="https://www.google.com">Cósmeticos</a>
@@ -34,7 +40,8 @@
                         <a href="https://www.google.com">Medicamentos</a>
                     </div>
                 </div>
-                <button class="nav-to-contact-button" onclick="scrollToContact()">Contacte-nos</button>
+                
+                <button class="nav-button" onclick="scrollToContact()">Contacte-nos</button>
             </nav>
         </div>
         <!-- Title and subtitle -->
