@@ -99,6 +99,7 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
     height:100%;
     width:140px;
 
+    cursor:pointer;
     border:none;
     outline: none;
     background-color:transparent;
@@ -109,7 +110,6 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
 .nav-button:hover, .nav-drop-down-button:hover,
 #products:has(.nav-drop-down-content:hover) #btn-products,
 #animals:has(.nav-drop-down-content:hover) #btn-animals{
-    cursor:pointer;
     background-color: rgb(175, 229, 214);
     border-radius: 15px;
 }
