@@ -49,7 +49,6 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
     /* Centering items inside */
     align-items: center;
     justify-content: center;
-    flex-wrap:nowrap;
     flex-direction: row;
     
     
