@@ -11,6 +11,7 @@
 
     /* Default shaping */
     --border-radius: 15px;
+    --top-bar-height: 35px;
     /*--------------------------*/
     --border-color: black;
     --botton-color: white;
@@ -33,10 +34,10 @@ form{
     text-align: left;
 }
 html, body{
+    position:static;
     background-color: var(--background);
     scroll-behavior: smooth;
-    overflow-x:hidden;
-    overflow-y: auto; /* < I found out not having this makes the top bar hide after passing through header */
+    overflow-x: clip;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -57,43 +58,36 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
     flex-shrink: 0;
     white-space: nowrap;
 }
-/* header ----------------------------------------------------------------- */
-/* Top bar div, includes top_bar_nav navigation*/
-.top-bar{
-    display:flex; /* Making the top bar the flexbox */
+/* || Header ----------------------------------------------------------------- */
+/* Top bar includes navigation*/
+.top-bar, #top-bar-nav{
+    display:flex; /* Making the top bar and nav flexboxes */
     /* Centering items inside */
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    
-    
+}
+
+.top-bar{
     /* So nav bar goes along when scrolling ^.^ */
     z-index: 99;
     position: fixed;
     top: 0;
-    margin:0;
 
-    /* Bar height is relative to screen size */
-    width: 100%;
-    height:5%;
+    /* Inherit width from header */
+    width:inherit;
+    height:var(--top-bar-height);
 
     background-color: var(--foreground-main);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.286);
 }
 #top-bar-nav{
-    height:100%;
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-
-    justify-content: center;
     text-align: center;
-
-
+    gap: 10px;
+    
     margin: 0 auto;
-    width:auto; 
-
+    /* Force nav to fit 100% so background color isnt odd-looking when hovering*/
+    height:100%;
     background-color: none;
 }
 
@@ -102,13 +96,12 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
     height:100%;
     width:140px;
     align-items: center;
-    
     justify-content: center;
     text-align: center;
 }
 .nav-drop-down-button, .nav-button{
     text-align: center;
-    font-size:inherit;
+    font-size: inherit;
     font-family: inherit;
     height:100%;
     width:140px;
@@ -120,9 +113,8 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
     transition: 0.3s;
 }
 
-
 .nav-button:hover, .nav-drop-down-button:hover,
-#products:has(.nav-drop-down-content:hover) #btn-products,
+#products:has(.nav-drop-down-content:hover) #btn-products, /* For drop down selection*/
 #animals:has(.nav-drop-down-content:hover) #btn-animals{
     background-color: var(--hover-nav);
     border-radius: var(--border-radius);
@@ -170,6 +162,7 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
 
 /* Title and subtitle -----------------------------------*/
 .header{
+    margin-top: var(--top-bar-height);
     z-index: 2;
     position:relative;
     flex-grow:1; /* So it doesn't step outside of header element */
@@ -188,7 +181,7 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
 .header-text {
     font-weight: bold;
     font-size: x-large;
-    color: aliceblue;
+    color: var(--font-primary);
     position: absolute;
     top: 50%;
     left: 50%;
