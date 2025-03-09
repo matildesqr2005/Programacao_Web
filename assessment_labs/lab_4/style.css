@@ -208,19 +208,20 @@ header:has(.nav-drop-down-content:hover) .bg-image, header:has(.nav-drop-down:ho
     filter: blur(4px) brightness(80%);
 }
 /* end of header ---------------------------------------------------------------------------------------------------------------------------------- */
+/*Botão*/
 .submit{
-    font-size: 15px;
-    color: var(ba);
+    font-size: 15px; 
+    color: var(--ba);
     font-family: inherit;
     padding: 15px 15px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); /*bordas arredondadas*/
     background-color: var(--botton-color);
-    cursor: pointer;
+    cursor: pointer; /*muda o cursor para um ponteiro, quando se passa o mouse*/
     width: 350px;
 }
 
 .submit:hover{
-    box-shadow: 5px 10px;
+    box-shadow: 5px 10px; /*adiciona sombra ao botão quando se passa o mouse*/
     
 }
 
@@ -237,7 +238,7 @@ header:has(.nav-drop-down-content:hover) .bg-image, header:has(.nav-drop-down:ho
     width: fit-content;
     max-width: 725px;
     height: fit-content;
-    margin: 50px auto;
+    margin: 50px auto; /*centraliza horizontalmente*/
     background-color: var(--foreground-secondary);
 }
 
@@ -263,8 +264,7 @@ div{
 }
 .container_img{
     display: flex;
-    align-items: center;
-    position: relative;
+    align-items: center; /*alinha os itens verticalmente*/
     gap: 15px;
     text-decoration: underline;
 }
