@@ -121,35 +121,33 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
 }
 .nav-drop-down-content{
     display:none;
+    flex-direction: column;
     position:absolute;
-    top:100%;
-    max-width: min-content;
+    top:100%; /* So content appears below top bar*/
+    
+    min-width: 200px;
     max-height: fit-content; 
     margin:0;
     padding:0;
     z-index: 1;
-    float:left;
-    flex:left;
 
     border-radius: var(--border-radius);
-
     background-color: var(--foreground-secondary);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 .nav-drop-down-content a{
-    float:none;
     height:max-content;
-
+    white-space: wrap;
     z-index: 3;
-    padding-left:12px;
+    padding-left:16px;
     padding-right: 16px;
     padding-top: 16px;
     padding-bottom: 16px;
-    display:block;
+    
     text-align: left;
     margin:0;
     transition: 0.2s;
-    border-radius: var(--border-radius);
+    border-radius: inherit;
 }
 
 .nav-drop-down-content a:hover{
@@ -157,7 +155,7 @@ nav a, .nav-drop-down-button, .nav-button, nav button {
 }
 
 .nav-drop-down:hover .nav-drop-down-content{
-    display:block;
+    display:flex;
 }
 
 /* Title and subtitle -----------------------------------*/
