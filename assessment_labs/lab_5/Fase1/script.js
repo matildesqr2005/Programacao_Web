@@ -69,7 +69,12 @@ compras = [
     1,
     numero,
     verdadeiro,
-    pessoa
+    pessoa,
+    {
+        nome: "Jose",
+        idade: 30,
+        serie_favorita: "Goblin"
+    }
 ];
 console.log(compras);
 
