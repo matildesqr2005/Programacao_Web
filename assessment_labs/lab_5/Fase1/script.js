@@ -1,4 +1,5 @@
-//var
+// **var**
+// !Explicação: Var permite atualização e redeclaração no mesmo escopo
 
 var nome = "Felix";
 console.log(nome); // "João"
@@ -6,7 +7,12 @@ console.log(nome); // "João"
 nome = "Maria";
 console.log(nome); // "Maria"
 
-//let
+var nome = "Joaquim";
+console.log(nome);
+
+// **let**
+// !Explicação: Let permite atualização mas não a redeclaração no mesmo escopo
+
 let ano = 2025;
 console.log(ano); 
 
@@ -16,15 +22,20 @@ console.log(idade); // 20
 idade = 21;
 console.log(idade); // 21
 
-// const
+// let idade = 40; <-- Resulta em erro.
+
+
+// **const**
+// !Explicação: Const não permite nem atualização nem a redeclaração no mesmo escopo
 
 const PI = 3.14;
 console.log(PI); // 3.14
 
 //PI = 21.6;
+// ^ Erro: Não é possível reatribuir o valor de uma constante
 //console.log(PI);
 
-// Tipos de Dados
+// **Tipos de Dados**
 
 // String
 let frase = "Olá, Mundo!";
