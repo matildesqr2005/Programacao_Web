@@ -52,15 +52,6 @@ console.log(typeof verdadeiro); // "boolean"
 // Array
 let lista = ["banana", "maçã", "laranja"];
 console.log(typeof lista); // "object"
-
-let compras = [
-    "ovos",
-    "leite",
-    "massa",
-    "farinha", 
-    "carne"
-];
-console.log(compras);
  
 // Object
 let pessoa = {
@@ -68,6 +59,19 @@ let pessoa = {
     idade : 20
 }; 
 console.log(typeof pessoa); // "Object"
+
+compras = [
+    "ovos",
+    "leite",
+    "massa",
+    "farinha",              // !Explicação: Listas podem conter diferentes tipos de dados, incluindo objetos.
+    "carne",
+    1,
+    numero,
+    verdadeiro,
+    pessoa
+];
+console.log(compras);
 
 let cadeira = {
     nome : "Programação Web",
