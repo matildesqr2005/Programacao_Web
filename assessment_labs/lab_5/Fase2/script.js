@@ -1,6 +1,12 @@
 // Obter o elemento botao
 const botao = document.getElementById("botao");
 
+//mudar h1 para ola mundo quando a pagina estiver carregada
+document.addEventListener("DOMContentLoaded", function(){
+    const h1 = document.querySelector("h1");
+    h1.textContent = "Olá, mundo!";
+})
+
 // Adicionar um event handler ao botão 
 botao.addEventListener("click", function(){
     // Manipular o elemento h1
