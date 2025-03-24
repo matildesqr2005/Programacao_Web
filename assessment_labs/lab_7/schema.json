@@ -4,34 +4,60 @@
     "description": "A product from Acme's catalog",
     "type": "object",
     "properties": {
-     "Product": {
-     "type": "object",
-     "properties": {
-     "ProductID": {
-     "type": "string"
-     },
-     "ProductName": {
-     "type": "string"
-     },
-     "Price": {
-     "type": "string"
-     },
-     "Provider": {
-     "type": "object",
-     "properties": {
-     "Name": {
-     "type": "string"
-     },
-     "City": {
-     "type": "string"
-     }
-     }
-     },
-     "required": [
-     "Name",
-     "City"
-     ]
-     }
-     }
-     }
-    }
+        "Product": {
+            "type": "object",
+            "properties": {
+                "ProductID": {
+                    "type": "string"
+                },
+                "Category":{
+                    "type":"string"
+                },
+                "ProductName": {
+                    "type": "string"
+                },
+                "ProductType":{
+                    "type": "string"
+                },
+                "Price": {
+                    "type": "string"
+                },
+                "Class":{
+                    "type": "string"
+                },
+                "Company":{
+                    "type": "string"
+                },
+                "Provider": {
+                    "type": "object",
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "City": {
+                            "type": "string"
+                        }
+                    },
+                
+                    "required": [
+                    "Name",
+                    "City"
+                ]
+                }
+            },
+            "required": [
+            "Price",
+            "ProductID",
+            "Category",
+            "ProductName",
+            "ProductType",
+            "Class",
+            "Company",
+            "Provider"
+        ]
+        }
+    },
+    "required": [
+        "Product"
+    ] 
+}
