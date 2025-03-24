@@ -8,10 +8,11 @@
             "type": "object",
             "properties": {
                 "ProductID": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "[0-9]{3}$"
                 },
                 "Category":{
-                    "type":"string"
+                    "type": "string"
                 },
                 "ProductName": {
                     "type": "string"
@@ -20,7 +21,8 @@
                     "type": "string"
                 },
                 "Price": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "[0-9]{1}$"
                 },
                 "Class":{
                     "type": "string"
@@ -38,25 +40,30 @@
                             "type": "string"
                         }
                     },
-                
+                    "minProperties": 2,
+                    "additionalProperties": false, 
                     "required": [
-                    "Name",
-                    "City"
+                        "Name",
+                        "City"
                 ]
                 }
             },
+            "minProperties": 8,
+            "additionalProperties": false, 
             "required": [
-            "Price",
-            "ProductID",
-            "Category",
-            "ProductName",
-            "ProductType",
-            "Class",
-            "Company",
-            "Provider"
+                "Price",
+                "ProductID",
+                "Category",
+                "ProductName",
+                "ProductType",
+                "Class",
+                "Company",
+                "Provider"
         ]
         }
     },
+    "minProperties": 1,
+    "additionalProperties": false, 
     "required": [
         "Product"
     ] 
