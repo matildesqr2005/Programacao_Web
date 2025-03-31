@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    console.log("Hello World!!");
+    res.status(201).json(minhas_notas);
 })
 
 // Iniciar o servidor
