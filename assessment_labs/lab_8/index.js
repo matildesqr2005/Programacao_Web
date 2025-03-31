@@ -62,14 +62,15 @@ app.patch('/:valor', (req, res) => {
         minhas_notas[req.params.valor] = req.body.nota;
         return res.status(200).json(minhas_notas);
     }
-    else
+    elsez
     return res.status(400).json({message: 'Index não existente.'});
 });
 
 //f)
-app.delete(':valor', (req, res) => {
-    if( minhas_notas.len > req.params.valor && req.params.valor >=0 ){
-        array.splice(req.params.valor,1);
+app.delete('/:valor', (req, res) => {
+    let int = parseInt(req.params.valor);
+    if( minhas_notas.length > int && int >=0 ){
+        minhas_notas.splice(int,1);
         return res.status(200).json(minhas_notas);
     } else 
         return res.status(400).json({message: 'Index não existente.'});

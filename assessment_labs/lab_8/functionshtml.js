@@ -67,8 +67,28 @@ buttonAddValue.addEventListener('click', function() {
 buttonAddParamVal.addEventListener('click', function(){
     let notasAddParam = document.getElementById("notasAddParam");
     console.log(notasAddParam);
-    fetch(url + notas)
-})
+    fetch(url + notasAddParam.value, {method: 'POST'})
+                .then(response => response.json())
+                .then(data => {
+                    notasAddParam.value = data;
+                })
+                .catch(error => {
+                    console.error('Error', error);
+         });
+});
+
+buttonDeletePosition.addEventListener('click', function(){
+    let notaDel = document.getElementById("notaDel");
+    console.log(notaDel);
+    fetch(url + notaDel.value, {method: 'DELETE'} )
+                .then(response => response.json())
+                .then(data => {
+                    notaDel.value = data;
+                })
+                .catch(error => {
+                    console.error('Error', error);
+        });
+});
 
 deleteAll.addEventListener('click', function(){
     fetch(url, {method : 'DELETE'})
