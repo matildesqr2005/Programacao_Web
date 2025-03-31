@@ -45,6 +45,42 @@ app.post('/:val', (req, res) => {
     res.send(minhas_notas);
 })
 
+//d)
+app.post('/:valor', (req, res) => {
+    let valor = parseInt(req.params.valor);
+    if (isNaN(valor)){
+        res.status(400).json({message: 'Valor não é um inteiro.'});
+    }
+    console.log(valor);
+    minhas_notas.push(valor);
+    return res.status(200).json(minhas_notas);
+})
+
+//e)
+app.patch('/:valor', (req, res) => {
+    if( minhas_notas.len > req.params.valor && req.params.valor >=0 ){
+        minhas_notas[req.params.valor] = req.body.nota;
+        return res.status(200).json(minhas_notas);
+    }
+    else
+    return res.status(400).json({message: 'Index não existente.'});
+});
+
+//f)
+app.delete(':valor', (req, res) => {
+    if( minhas_notas.len > req.params.valor && req.params.valor >=0 ){
+        array.splice(req.params.valor,1);
+        return res.status(200).json(minhas_notas);
+    } else 
+        return res.status(400).json({message: 'Index não existente.'});
+});
+
+//g)
+app.delete('/', (req, res) => {
+    minhas_notas.length = 0;
+    return res.status(200).json(minhas_notas);
+})
+
 // Iniciar o servidor
 app.listen(port, () => {
     // Ex 1
