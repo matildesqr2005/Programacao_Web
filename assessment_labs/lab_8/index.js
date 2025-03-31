@@ -25,10 +25,13 @@ app.get('/', (req, res) => {
 app.get('/:index', (req, res) => {
     let i = req.params.index;
     let size = minhas_notas.length;
-    if(i > -1 && i < size)
+    if(i > -1 && i < size){
         res.status(200).json(minhas_notas[i]);
+        return;
+    }
 
     res.status(400).json();
+    throw "Invalid index";
 })
 
 // Ex - c)
@@ -36,16 +39,15 @@ app.post('/:val', (req, res) => {
     let value = req.params.val;
     let int = parseInt(value);
     if (isNaN(int)){
-        res.status(400).send("O valor inserido deve ser um inteiro.");
-        return;
+        res.status(400).json(int);
+        throw "Non integer value";
     }
     minhas_notas.push(int);
-    console.log(minhas_notas);
-    res.send();
+    res.send(minhas_notas);
 })
 
 // Iniciar o servidor
 app.listen(port, () => {
     // Ex 1
-    console.log(`Servidor em http://localhost:${port},\nNomes: Matilde Sequeira, Alessandra Delgado, Ana Silva, Carolina Gegaloto`);
+    console.log(`Servidor em http://localhost:${port}\nNomes: Matilde Sequeira, Alessandra Delgado, Ana Silva, Carolina Gegaloto`);
 });
