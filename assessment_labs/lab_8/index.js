@@ -50,16 +50,22 @@ app.post('/:val', (req, res) => {
 //d)
 app.post('/:valor', (req, res) => {
     let valor = parseInt(req.params.valor);
+    if (isNaN(valor)){
+        res.status(400).json({message: 'Valor não é um inteiro.'});
+    }
     console.log(valor);
     minhas_notas.push(valor);
-    return res.send("Valor recebido: " + req.params.valor);
+    return res.status(200).json(minhas_notas);
 })
 
 //e)
 app.patch('/:valor', (req, res) => {
-    minhas_notas[req.params.valor] = req.body.nota;
-    console.log(minhas_notas[req.params.valor]);
-    return res.send("Valor mudado.");
+    if( minhas_notas.len > req.params.valor && req.params.valor >=0 ){
+        minhas_notas[req.params.valor] = req.body.nota;
+        return res.status(200).json(minhas_notas);
+    }
+    else
+    return res.status(400).json({message: 'Index não existente.'});
 });
 
 //f)
