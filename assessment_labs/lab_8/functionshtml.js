@@ -1,6 +1,6 @@
 let buttonNotas = document.getElementById("buttonNotas");
 let buttonNotasPosition = document.getElementById("buttonNotasPosition");
-let buttonAddValue = document.getElementById("buttonNotasPosition")
+let buttonAddValue = document.getElementById("buttonAddValue");
 
 const url= "http://localhost:3000/"; 
 
@@ -39,19 +39,19 @@ buttonNotasPosition.addEventListener('click', function(){
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    notasAdd.value = "Invalid index";
+                    notasPosition.value = "Invalid index";
     });
 });
 
 buttonAddValue.addEventListener('click', function() {
-    let notasAdd = document.getElementById("notasAdd")
-    fetch(url + notasAdd.value)
+    let notasAdd = document.getElementById("notasAddValue");
+    console.log(notasAdd);
+    fetch(url + notasAdd.value, {method : 'POST'})
                 .then(response => response.json())
                 .then(data => {
                     notasAdd.value = data;
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    notasAdd.value = "Invalid index";
     });
 })
