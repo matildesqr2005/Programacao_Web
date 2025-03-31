@@ -8,7 +8,8 @@ const app = express();
 // Definir a porta onde o servidor vai escutar
 const port = 3000;
 
-const minhas_notas = [20,10,15,17];
+let minhas_notas = [20,10,15,17];
+
 
 // Middleware para analisar o corpo das requisições como JSON
 app.use(express.json());
