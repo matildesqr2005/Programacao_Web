@@ -1,6 +1,9 @@
 let buttonNotas = document.getElementById("buttonNotas");
 let buttonNotasPosition = document.getElementById("buttonNotasPosition");
 let buttonAddValue = document.getElementById("buttonAddValue");
+let buttonAddParamVal = document.getElementById("buttonAddParamVal");
+let buttonUpdatePosition = document.getElementById("buttonUpdatePositon");
+let buttonDeletePosition = document.getElementById("buttonDeletePosition");
 let deleteAll = document.getElementById("deleteAll");
 
 const url= "http://localhost:3000/"; 
@@ -47,7 +50,7 @@ buttonNotasPosition.addEventListener('click', function(){
 buttonAddValue.addEventListener('click', function() {
     let notasAdd = document.getElementById("notasAddValue");
     console.log(notasAdd);
-    fetch(url + notasAdd.value, {method : 'POST'})
+    fetch(url + notasAdd.value, {method : 'POST', body:JSON.stringify({nota:notasAdd.value})})
                 .then(response => response.json())
                 .then(data => {
                     notasAdd.value = data;
@@ -56,6 +59,12 @@ buttonAddValue.addEventListener('click', function() {
                     console.error('Erro:', error);
     });
 });
+
+buttonAddParamVal.addEventListener('click', function(){
+    let notasAddParam = document.getElementById("notasAddParam");
+    console.log(notasAddParam);
+    fetch(url + notas)
+})
 
 deleteAll.addEventListener('click', function(){
     fetch(url, {method : 'DELETE'})

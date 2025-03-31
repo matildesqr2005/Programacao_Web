@@ -15,12 +15,12 @@ let minhas_notas = [20,10,15,17];
 app.use(express.json());
 app.use(cors());
 
-// Ex 3 - a)
+// Ex 3 - a) V
 app.get('/', (req, res) => {
     res.status(200).json(minhas_notas);
 })
 
-// Ex - b)
+// Ex - b) V
 app.get('/:index', (req, res) => {
     let i = req.params.index;
     let size = minhas_notas.length;
@@ -33,9 +33,9 @@ app.get('/:index', (req, res) => {
     throw "Invalid index";
 })
 
-// Ex - c)
-app.post('/:val', (req, res) => {
-    let value = req.params.val;
+// Ex - c) V
+app.post('/', (req, res) => {
+    let value = req.body;
     let int = parseInt(value);
     if (isNaN(int)){
         res.status(400).json(int);
@@ -75,7 +75,7 @@ app.delete(':valor', (req, res) => {
         return res.status(400).json({message: 'Index não existente.'});
 });
 
-//g)
+//g) V
 app.delete('/', (req, res) => {
     minhas_notas.length = 0;
     return res.status(200).json(minhas_notas);
