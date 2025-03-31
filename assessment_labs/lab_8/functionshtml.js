@@ -2,7 +2,7 @@ let buttonNotas = document.getElementById("buttonNotas");
 let buttonNotasPosition = document.getElementById("buttonNotasPosition");
 let buttonAddValue = document.getElementById("buttonAddValue");
 let buttonAddParamVal = document.getElementById("buttonAddParamVal");
-let buttonUpdatePosition = document.getElementById("buttonUpdatePositon");
+let buttonUpdatePosition = document.getElementById("buttonUpdatePosition");
 let buttonDeletePosition = document.getElementById("buttonDeletePosition");
 let deleteAll = document.getElementById("deleteAll");
 
@@ -76,6 +76,25 @@ buttonAddParamVal.addEventListener('click', function(){
                     console.error('Error', error);
          });
 });
+
+buttonUpdatePosition.addEventListener('click', function(){
+    let notaUpdate = document.getElementById("notaUpdate");
+    let indexUpdate = document.getElementById("indexUpdate");
+
+    fetch(url + indexUpdate.value, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({nota: notaUpdate.value})
+    })
+                .then(response => response.json())
+                .then(data => {
+                    notaUpdate.value = data;
+                })
+                .catch(error => {
+                    console.error('Error', error);
+                });
+
+})
 
 buttonDeletePosition.addEventListener('click', function(){
     let notaDel = document.getElementById("notaDel");

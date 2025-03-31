@@ -34,22 +34,28 @@
         <hr>
 
         <h3>Método POST: Adicionar o valor enviado no parametro</h3>
-        <button id="buttonAddParamVal">Clique para adiconar o valor</button>
         <div>
             <input name="notasAddParam" id="notasAddParam"></input>
         </div>
+        <button id="buttonAddParamVal">Clique para adiconar o valor</button>
         <br>
         <hr>
 
         <h3>Método PATCH: Atualizar a nota na posição enviada</h3>
-        <button id="buttonUpdatePosition">Clique para atualizar a nota</button>
+        <div>
+            <label for="notaUpdate">Nota:</label>
             <input name="notaUpdate" id="notaUpdate"></input>
+            <br>
+            <label for="indexUpdate">Index:</label>
+            <input name="indexUpdate" id="indexUpdate"></input>
+        </div>
+        <button id="buttonUpdatePosition">Clique para atualizar a nota</button>
         <br>
         <hr>
 
         <h3>Método DELETE: Eliminar a nota na posição enviada</h3>
+        <input name="notaDel" id="notaDel"></input>
         <button id="buttonDeletePosition">Clique para eliminar a nota</button>
-            <input name="notaDel" id="notaDel"></input>
         <br>
         <hr>
 

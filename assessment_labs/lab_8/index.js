@@ -58,11 +58,14 @@ app.post('/:valor', (req, res) => {
 
 //e)
 app.patch('/:valor', (req, res) => {
-    if( minhas_notas.len > req.params.valor && req.params.valor >=0 ){
-        minhas_notas[req.params.valor] = req.body.nota;
+    let index = parseInt(req.params.valor);
+    let { nota } = req.body;
+    let notaInt = parseInt(nota);
+    if( minhas_notas.length > index && index >=0 ){
+        minhas_notas[index] = notaInt;
         return res.status(200).json(minhas_notas);
     }
-    elsez
+    else
     return res.status(400).json({message: 'Index não existente.'});
 });
 
