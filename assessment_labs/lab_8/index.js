@@ -56,14 +56,23 @@ app.post('/:valor', (req, res) => {
 //e)
 app.patch('/:valor', (req, res) => {
     minhas_notas[req.params.valor] = req.body.nota;
+    console.log(minhas_notas[req.params.valor]);
     return res.send("Valor mudado.");
 });
 
 //f)
 app.delete(':valor', (req, res) => {
     array.splice(req.params.valor,1);
+    console.log(minhas_notas[req.params.valor]);
+    return res.send("Valor eliminado: " + req.params.valor);
 });
 
+//g)
+app.delete('/', (req, res) => {
+    minhas_notas.length = 0;
+    console.log(minhas_notas);
+    return res.send("Array vazio.");
+})
 
 // Iniciar o servidor
 app.listen(port, () => {
