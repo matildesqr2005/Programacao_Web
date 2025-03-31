@@ -1,7 +1,12 @@
 let buttonNotas = document.getElementById("buttonNotas");
+let buttonNotasPosition = document.getElementById("buttonNotasPosition");
+let buttonAddValue = document.getElementById("buttonAddValue");
+let deleteAll = document.getElementById("deleteAll");
+
+const url= "http://localhost:3000/"; 
 
 buttonNotas.addEventListener('click', function() {
-	const url= "http://localhost:3000/"; 
+	
     let notasInput = document.getElementById("notas");
 
 	fetch(url)
@@ -24,3 +29,41 @@ try {
         notasInput.value = "Erro ao carregar notas";
     }
 */
+
+buttonNotasPosition.addEventListener('click', function(){
+    let notasPosition = document.getElementById("notasPosition");
+
+    fetch(url + notasPosition.value)
+                .then(response => response.json())
+                .then(data => {
+                    notasPosition.value = data;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    notasPosition.value = "Invalid index";
+    });
+});
+
+buttonAddValue.addEventListener('click', function() {
+    let notasAdd = document.getElementById("notasAddValue");
+    console.log(notasAdd);
+    fetch(url + notasAdd.value, {method : 'POST'})
+                .then(response => response.json())
+                .then(data => {
+                    notasAdd.value = data;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+    });
+});
+
+deleteAll.addEventListener('click', function(){
+    fetch(url, {method : 'DELETE'})
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+    });
+})
