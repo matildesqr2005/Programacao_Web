@@ -1,7 +1,11 @@
 let buttonNotas = document.getElementById("buttonNotas");
+let buttonNotasPosition = document.getElementById("buttonNotasPosition");
+let buttonAddValue = document.getElementById("buttonNotasPosition")
+
+const url= "http://localhost:3000/"; 
 
 buttonNotas.addEventListener('click', function() {
-	const url= "http://localhost:3000/"; 
+	
     let notasInput = document.getElementById("notas");
 
 	fetch(url)
@@ -24,3 +28,30 @@ try {
         notasInput.value = "Erro ao carregar notas";
     }
 */
+
+buttonNotasPosition.addEventListener('click', function(){
+    let notasPosition = document.getElementById("notasPosition");
+
+    fetch(url + notasPosition.value)
+                .then(response => response.json())
+                .then(data => {
+                    notasPosition.value = data;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    notasAdd.value = "Invalid index";
+    });
+});
+
+buttonAddValue.addEventListener('click', function() {
+    let notasAdd = document.getElementById("notasAdd")
+    fetch(url + notasAdd.value)
+                .then(response => response.json())
+                .then(data => {
+                    notasAdd.value = data;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    notasAdd.value = "Invalid index";
+    });
+})
