@@ -49,8 +49,9 @@ app.post('/:val', (req, res) => {
 
 //d)
 app.post('/:valor', (req, res) => {
-    console.log(req.params.valor);
-    minhas_notas.push(req.params.valor);
+    let valor = parseInt(req.params.valor);
+    console.log(valor);
+    minhas_notas.push(valor);
     return res.send("Valor recebido: " + req.params.valor);
 })
 
@@ -63,16 +64,17 @@ app.patch('/:valor', (req, res) => {
 
 //f)
 app.delete(':valor', (req, res) => {
-    array.splice(req.params.valor,1);
-    console.log(minhas_notas[req.params.valor]);
-    return res.send("Valor eliminado: " + req.params.valor);
+    if( minhas_notas.len > req.params.valor && req.params.valor >=0 ){
+        array.splice(req.params.valor,1);
+        return res.status(200).json(minhas_notas);
+    } else 
+        return res.status(400).json({message: 'Index não existente.'});
 });
 
 //g)
 app.delete('/', (req, res) => {
     minhas_notas.length = 0;
-    console.log(minhas_notas);
-    return res.send("Array vazio.");
+    return res.status(200).json(minhas_notas);
 })
 
 // Iniciar o servidor
