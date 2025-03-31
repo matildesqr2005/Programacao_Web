@@ -46,6 +46,20 @@ app.post('/:val', (req, res) => {
     res.send();
 })
 
+//d)
+app.post('/:valor', (req, res) => {
+    console.log(req.params.valor);
+    minhas_notas.append(req.params.valor);
+    return res.send("Parametro: " + req.params.valor);
+})
+
+//e)
+app.patch('/:valor', (req, res) => {
+    minhas_notas[req.params.valor] = req.body.nota;
+    return res.send("Sucesso");
+});
+
+
 // Iniciar o servidor
 app.listen(port, () => {
     // Ex 1
