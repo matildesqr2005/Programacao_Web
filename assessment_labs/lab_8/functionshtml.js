@@ -1,6 +1,7 @@
 let buttonNotas = document.getElementById("buttonNotas");
 let buttonNotasPosition = document.getElementById("buttonNotasPosition");
 let buttonAddValue = document.getElementById("buttonAddValue");
+let deleteAll = document.getElementById("deleteAll");
 
 const url= "http://localhost:3000/"; 
 
@@ -50,6 +51,17 @@ buttonAddValue.addEventListener('click', function() {
                 .then(response => response.json())
                 .then(data => {
                     notasAdd.value = data;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+    });
+});
+
+deleteAll.addEventListener('click', function(){
+    fetch(url, {method : 'DELETE'})
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
                 })
                 .catch(error => {
                     console.error('Erro:', error);

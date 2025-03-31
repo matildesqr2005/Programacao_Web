@@ -79,7 +79,7 @@ app.delete(':valor', (req, res) => {
 app.delete('/', (req, res) => {
     minhas_notas.length = 0;
     return res.status(200).json(minhas_notas);
-})
+});
 
 // Iniciar o servidor
 app.listen(port, () => {
