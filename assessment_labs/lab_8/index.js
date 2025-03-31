@@ -49,14 +49,19 @@ app.post('/:val', (req, res) => {
 //d)
 app.post('/:valor', (req, res) => {
     console.log(req.params.valor);
-    minhas_notas.append(req.params.valor);
-    return res.send("Parametro: " + req.params.valor);
+    minhas_notas.push(req.params.valor);
+    return res.send("Valor recebido: " + req.params.valor);
 })
 
 //e)
 app.patch('/:valor', (req, res) => {
     minhas_notas[req.params.valor] = req.body.nota;
-    return res.send("Sucesso");
+    return res.send("Valor mudado.");
+});
+
+//f)
+app.delete(':valor', (req, res) => {
+    array.splice(req.params.valor,1);
 });
 
 
