@@ -50,7 +50,11 @@ buttonNotasPosition.addEventListener('click', function(){
 buttonAddValue.addEventListener('click', function() {
     let notasAdd = document.getElementById("notasAddValue");
     console.log(notasAdd);
-    fetch(url + notasAdd.value, {method : 'POST', body:JSON.stringify({nota:notasAdd.value})})
+    fetch(url, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:JSON.stringify({nota:notasAdd.value})
+    })
                 .then(response => response.json())
                 .then(data => {
                     notasAdd.value = data;

@@ -35,8 +35,8 @@ app.get('/:index', (req, res) => {
 
 // Ex - c) V
 app.post('/', (req, res) => {
-    let value = req.body;
-    let int = parseInt(value);
+    let { nota } = req.body;
+    let int = parseInt(nota);
     if (isNaN(int)){
         res.status(400).json(int);
         throw "Non integer value";
