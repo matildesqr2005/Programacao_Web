@@ -42,8 +42,7 @@ app.post('/:val', (req, res) => {
         throw "Non integer value";
     }
     minhas_notas.push(int);
-    console.log(minhas_notas);
-    res.send();
+    res.send(minhas_notas);
 })
 
 // Iniciar o servidor
