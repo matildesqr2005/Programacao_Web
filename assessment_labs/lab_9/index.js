@@ -9,8 +9,16 @@ const app = express();
 // Definir a porta onde o servidor vai escutar
 const port = 3000;
 
+const methodLogger = function (req, res, next) {
+    let date = new Date();
+    console.log(`Reveived ${req.method} method. Date-Time (PT): ${date.toLocaleDateString("pt-PT")} ${date.toLocaleTimeString("pt-PT")}`);
+    next();
+}
+  
+  
 app.use(express.static(path.join(__dirname, 'public')));
 // Middleware para analisar o corpo das requisições como JSON
+app.use(methodLogger);
 app.use(express.json());
 app.use(cors());
 
