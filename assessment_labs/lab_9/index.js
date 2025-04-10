@@ -1,7 +1,6 @@
 // Importar o módulo express
 const express = require('express');
 const cors = require('cors');
-
 // Criar uma instância do aplicativo Express
 const app = express();
 
@@ -20,3 +19,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor em http://localhost:${port}`);
 });
+
+
