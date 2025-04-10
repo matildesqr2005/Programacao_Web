@@ -2,13 +2,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script src="index.js" type="text/javascript"></script>
+        <script src="client.js" defer></script>
+        
     </head>
     <body>
         <h1>Informações Clientes</h1>
 
         <div id="search">
-            <form>
+            <form id="idForm">
                 <label for="id">Insira o ID do utilizador: </label>
                 <input type="text" id="id" required>
                 <input type="submit" value="Pesquisar">
@@ -64,27 +65,17 @@
         <!-- Feita uma tabela, pois o consumo é uma lista -->
         <table id="tblConsume">
             <h2>Consumo</h2>
-            <tr>
-                <th>Mês</th>
-                <th>Ano</th>
-                <th>kWh Consumido</th>
-                <th>Custo Total</th>
-                <th>Data de Leitura</th>
-            </tr>
-            <tr>
-                <td>A</td>
-                <td>B</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>OLAAAA</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Ano</th>
+                    <th>kWh Consumido</th>
+                    <th>Custo Total</th>
+                    <th>Data de Leitura</th>
+                </tr>
+                
+            </thead>
+            <tbody id = "consumBody"></tbody>
         </table>
 
         
