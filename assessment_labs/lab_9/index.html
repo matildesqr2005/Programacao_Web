@@ -11,35 +11,52 @@
             <form>
                 <label for="id">Insira o ID do utilizador: </label>
                 <input type="text" id="id" required>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Pesquisar">
             </form>
-            <label>Nome: </label>
-            <label id="name"></label>
+
+            <div>
+                <label>Nome do utilizador:</label>
+                <input id="name" class="textBox" readonly>
+            </div>
         </div>
         <div id="info">
             <div id="infoAddress" class="infoBox">
-                <label>Rua:</label>
-                <label id="adrStreet"></label> 
+                <div>
+                    <label>Rua:</label>
+                    <input id="adrStreet" class="textBox" readonly>
+                </div>
     
-                <label>Número:</label>
-                <label id="adrNo"></label> 
-    
-                <label>Cidade:</label>
-                <label id="adrCity"></label> 
-    
-                <label>Código Postal:</label>
-                <label id="adrPostal"></label> 
+                <div>
+                    <label>Número:</label>
+                    <input id="adrNo" class="textBox" readonly>
+                </div>
+                
+                <div>
+                    <label>Cidade:</label>
+                    <input id="adrCity" class="textBox" readonly> 
+                </div>
+                
+                <div>
+                    <label>Código Postal:</label>
+                    <input id="adrPostal" class="textBox" readonly> 
+                </div>
             </div>
-    
+            
             <div id="infoAditional" class="infoBox">
-                <label>Tipo de Tarifa:</label>
-                <label id="adtResid"></label> 
-    
-                <label>Fornecedor de Energia:</label>
-                <label id="adtProv"></label> 
-    
-                <label>Contrato Ativo? </label>
-                <label id="adtActive"></label> 
+                <div>
+                    <label>Tipo de Tarifa:</label>
+                    <input id="adtResid" class="textBox" readonly> 
+                </div>
+                
+                <div>
+                    <label>Fornecedor de Energia:</label>
+                    <input id="adrProv" class="textBox" readonly> 
+                </div>
+                
+                <div>
+                    <label>Contrato Ativo? </label>
+                    <input id="adtActive" class="textBox" readonly> 
+                </div>
             </div>
         </div>
         
