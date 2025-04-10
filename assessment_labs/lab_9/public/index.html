@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="client.js" defer></script>
+        
+    </head>
+    <body>
+        <h1>Informações Clientes</h1>
+
+        <div id="search">
+            <form id="idForm">
+                <label for="id">Insira o ID do utilizador: </label>
+                <input type="text" id="id" required>
+                <input type="submit" value="Pesquisar">
+            </form>
+
+            <div>
+                <label>Nome do utilizador:</label>
+                <input id="name" class="textBox" readonly>
+            </div>
+        </div>
+        <div id="info">
+            <div id="infoAddress" class="infoBox">
+                <div>
+                    <label>Rua:</label>
+                    <input id="adrStreet" class="textBox" readonly>
+                </div>
+    
+                <div>
+                    <label>Número:</label>
+                    <input id="adrNo" class="textBox" readonly>
+                </div>
+                
+                <div>
+                    <label>Cidade:</label>
+                    <input id="adrCity" class="textBox" readonly> 
+                </div>
+                
+                <div>
+                    <label>Código Postal:</label>
+                    <input id="adrPostal" class="textBox" readonly> 
+                </div>
+            </div>
+            
+            <div id="infoAditional" class="infoBox">
+                <div>
+                    <label>Tipo de Tarifa:</label>
+                    <input id="adtResid" class="textBox" readonly> 
+                </div>
+                
+                <div>
+                    <label>Fornecedor de Energia:</label>
+                    <input id="adrProv" class="textBox" readonly> 
+                </div>
+                
+                <div>
+                    <label>Contrato Ativo? </label>
+                    <input id="adtActive" class="textBox" readonly> 
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Feita uma tabela, pois o consumo é uma lista -->
+        <table id="tblConsume">
+            <h2>Consumo</h2>
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Ano</th>
+                    <th>kWh Consumido</th>
+                    <th>Custo Total</th>
+                    <th>Data de Leitura</th>
+                </tr>
+                
+            </thead>
+            <tbody id = "consumBody"></tbody>
+        </table>
+
+        
+    </body>
+</html>
