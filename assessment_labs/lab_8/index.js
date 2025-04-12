@@ -1,8 +1,6 @@
 // Importar o módulo express
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
 
 // Criar uma instância do aplicativo Express
 const app = express();
@@ -11,32 +9,7 @@ const app = express();
 const port = 3000;
 
 // Ex 2
-let minhas_notas = [20, 10, 15, 17];
-let notas_info = [
-    {
-        cod: 0,
-        nome_disc: "Programação",
-        nome_prof: "Nuno",
-        nota: 20,
-    },
-
-    {
-        cod: 1,
-        nome_disc: "Programação",
-        nome_prof: "Onun",
-        nota: 10,
-    },
-
-    {
-        cod: 2,
-        nome_disc: "Programação",
-        nome_prof: "Nnou",
-        nota: 15,
-    }
-]
-require("./Controllers/notas")(notas_info);
-var notas = require("./Controllers/notas")(notas_info);
-app.use('/notas', notas);
+let minhas_notas = [20,10,15,17];
 
 // Middleware para analisar o corpo das requisições como JSON
 app.use(express.json());
@@ -44,15 +17,15 @@ app.use(cors());
 
 // Ex 3 - a) V
 app.get('/', (req, res) => {
-    res.status(200).json(notas);
+    res.status(200).json(minhas_notas);
 })
 
 // Ex - b) V
 app.get('/:index', (req, res) => {
     let i = req.params.index;
-    let size = notas.length;
+    let size = minhas_notas.length;
     if(i > -1 && i < size){
-        res.status(200).json(notas[i].nota);
+        res.status(200).json(minhas_notas[i]);
         return;
     }
 
@@ -61,7 +34,6 @@ app.get('/:index', (req, res) => {
 })
 
 // Ex - c) V
-//por acabar
 app.post('/', (req, res) => {
     let { nota } = req.body;
     let int = parseInt(nota);
@@ -74,7 +46,6 @@ app.post('/', (req, res) => {
 })
 
 //d)
-//por acabar
 app.post('/:valor', (req, res) => {
     let valor = parseInt(req.params.valor);
     if (isNaN(valor)){
@@ -90,9 +61,9 @@ app.patch('/:valor', (req, res) => {
     let index = parseInt(req.params.valor);
     let { nota } = req.body;
     let notaInt = parseInt(nota);
-    if( notas.length > index && index >=0 ){
-        notas[index].nota = notaInt;
-        return res.status(200).json(notas);
+    if( minhas_notas.length > index && index >=0 ){
+        minhas_notas[index] = notaInt;
+        return res.status(200).json(minhas_notas);
     }
     else
     return res.status(400).json({message: 'Index não existente.'});
@@ -101,17 +72,17 @@ app.patch('/:valor', (req, res) => {
 //f)
 app.delete('/:valor', (req, res) => {
     let int = parseInt(req.params.valor);
-    if( notas.length > int && int >=0 ){
-        notas.splice(int,1);
-        return res.status(200).json(notas);
+    if( minhas_notas.length > int && int >=0 ){
+        minhas_notas.splice(int,1);
+        return res.status(200).json(minhas_notas);
     } else 
         return res.status(400).json({message: 'Index não existente.'});
 });
 
 //g) V
 app.delete('/', (req, res) => {
-    notas.length = 0;
-    return res.status(200).json(notas);
+    minhas_notas.length = 0;
+    return res.status(200).json(minhas_notas);
 });
 
 // Iniciar o servidor
