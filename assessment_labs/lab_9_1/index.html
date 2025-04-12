@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="functionshtml.js" defer></script>
+        <title>Testar Métodos</title>
+       
+    </head>
+    <body>
+        <h1>Testar Métodos em Node</h1>
+        <h3>Método GET: Devolver a lista toda</h3>
+        <div>
+            <input name="notas" id="notas" readonly></input>
+        </div>
+        <button id="buttonNotas">Clique para mostrar lista</button>
+        <br>
+        <hr>
+
+        <h3>Método GET: Devolver a nota na posição em questão</h3>
+        <div>
+            <input name="notasPosition" id="notasPosition"></input>
+        </div>
+        <button id="buttonNotasPosition">Clique para devolver a nota </button>
+        <br>
+        <hr>
+
+        <h3>Método POST: Adicionar 1 valor no vetor</h3>
+        <div>
+            <input name="notasAddValue" id="notasAddValue"></input>
+        </div>
+        <button id="buttonAddValue">Clique para adicionar o valor</button>
+        <br>
+        <hr>
+
+        <h3>Método POST: Adicionar o valor enviado no parametro</h3>
+        <div>
+            <input name="notasAddParam" id="notasAddParam"></input>
+        </div>
+        <button id="buttonAddParamVal">Clique para adiconar o valor</button>
+        <br>
+        <hr>
+
+        <h3>Método PATCH: Atualizar a nota na posição enviada</h3>
+        <div>
+            <label for="notaUpdate">Nota:</label>
+            <input name="notaUpdate" id="notaUpdate"></input>
+            <br>
+            <label for="indexUpdate">Index:</label>
+            <input name="indexUpdate" id="indexUpdate"></input>
+        </div>
+        <button id="buttonUpdatePosition">Clique para atualizar a nota</button>
+        <br>
+        <hr>
+
+        <h3>Método DELETE: Eliminar a nota na posição enviada</h3>
+        <input name="notaDel" id="notaDel"></input>
+        <button id="buttonDeletePosition">Clique para eliminar a nota</button>
+        <br>
+        <hr>
+
+        <h3>Método DELETE: Eliminar todas as notas</h3>
+        <button id="deleteAll">Clique para eliminar lista</button>
+        <br>
+        <hr>
+    </body>
+</html>
