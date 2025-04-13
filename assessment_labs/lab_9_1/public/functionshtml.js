@@ -26,16 +26,45 @@ buttonNotas.addEventListener('click', function () {
 });
 
 //b
-buttonNotasPosition.addEventListener('click', function(){
+buttonNotasPosition.addEventListener('click', function () {
     let notasPosition = document.getElementById("notasPosition");
 
     fetch(url + notasPosition.value)
-                .then(response => response.json())
-                .then(data => {
-                    notasPosition.value = `COD: ${data.cod} | Disciplina: ${data.nome_disc} | Professor: ${data.nome_prof} | Nota: ${data.nota}`;
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    notasPosition.value = "Invalid index";
-    });
+        .then(response => response.json())
+        .then(data => {
+            notasPosition.value = `COD: ${data.cod} | Disciplina: ${data.nome_disc} | Professor: ${data.nome_prof} | Nota: ${data.nota}`;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            notasPosition.value = "Invalid index";
+        });
+});
+
+//c)
+buttonAddValue.addEventListener('click', function () {
+    let notasAdd = document.getElementById("notasAddValue");
+    let cod = document.getElementById("cod");
+    let disc = document.getElementById("disc");
+    let prof = document.getElementById("prof");
+    console.log(notasAdd);
+    fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            cod: cod.value,
+            disc: disc.value,
+            prof: prof.value,
+            nota: notasAdd.value
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            prof.value = data.prof;
+            notasAdd.value = data.nota;
+            disc.value = data.disc;
+            cod.value = data.cod;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 });

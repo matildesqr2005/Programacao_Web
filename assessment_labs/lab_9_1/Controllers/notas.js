@@ -26,5 +26,23 @@ module.exports = (notas_info) => {
         }
     })
 
+    //c)
+    router.post('/', (req, res) => {
+        let { cod, disc, prof, nota } = req.body;
+        let int = parseInt(nota);
+        if (isNaN(int)) {
+            res.status(400).json(int);
+            throw "Non integer value";
+        }
+        let notas = {
+            cod: cod,
+            disc: disc,
+            prof: prof,
+            nota: intNota
+        };
+        notas_info.push(notas);
+        res.send(notas_info);
+    })
+
     return router;
 };
