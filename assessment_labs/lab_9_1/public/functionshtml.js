@@ -32,7 +32,7 @@ buttonNotasPosition.addEventListener('click', function(){
     fetch(url + notasPosition.value)
                 .then(response => response.json())
                 .then(data => {
-                    notasPosition.value = `COD: ${note.cod} | Disciplina: ${note.nome_disc} | Professor: ${note.nome_prof} | Nota: ${note.nota}`;
+                    notasPosition.value = `COD: ${data.cod} | Disciplina: ${data.nome_disc} | Professor: ${data.nome_prof} | Nota: ${data.nota}`;
                 })
                 .catch(error => {
                     console.error('Erro:', error);

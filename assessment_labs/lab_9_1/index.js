@@ -52,14 +52,5 @@ app.use('/notas', notasRouter);
 
 connect.then((db) => {
     console.log("Connected correctly to server");
-    var notas = require("./Controllers/notas");
-    app.use('/notas', notas);
-    app.listen(port, () => console.log('As minhas notas ${port}!'))
-    })
-
-
-// Iniciar o servidor
-app.listen(port, () => {
-    // Ex 1
-    console.log(`Servidor em http://localhost:${port}\nNomes: Matilde Sequeira, Alessandra Delgado, Ana Silva, Carolina Gegaloto`);
-});
+    app.listen(port, () => console.log(`As minhas notas ${port}!`));
+ })

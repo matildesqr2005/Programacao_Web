@@ -1,13 +1,13 @@
-const nota = require('../models/notaModel');
 
 
 module.exports = (notas_info) => {
+    const nota = require('../Models/nota');
     const express = require('express');
     const router = express.Router();
-const saveNotasToFile = () => {
-    const filePath = path.join(__dirname, 'notas.txt');
-    fs.writeFileSync(filePath, JSON.stringify(notas_info, null, 2));
-};
+    const saveNotasToFile = () => {
+        const filePath = path.join(__dirname, 'notas.txt');
+        fs.writeFileSync(filePath, JSON.stringify(notas_info, null, 2));
+    };
 
     //a)
     router.get('/', (req, res) => {
@@ -18,7 +18,7 @@ const saveNotasToFile = () => {
     router.get('/:cod', (req, res) => {
         let cod = parseInt(req.params.cod);
         let note = notas_info.find(n => n.cod === cod);
-        
+
         if (note) {
             res.status(200).json(note);
         } else {
