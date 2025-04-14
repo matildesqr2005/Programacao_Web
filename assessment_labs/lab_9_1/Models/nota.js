@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const notaSchema = new mongoose.Schema({
-  cod: { type: String, required: true, unique: true },
+  cod: { type: Number, required: true, unique: true },
   nome_disc: { type: String, required: true },
   nome_prof: { type: String, required: true },
   nota: { type: Number, required: true,  

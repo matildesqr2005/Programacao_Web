@@ -44,27 +44,65 @@ buttonNotasPosition.addEventListener('click', function () {
 buttonAddValue.addEventListener('click', function () {
     let notasAdd = document.getElementById("notasAddValue");
     let cod = document.getElementById("cod");
-    let disc = document.getElementById("disc");
-    let prof = document.getElementById("prof");
+    let nome_disc = document.getElementById("disc");
+    let nome_prof = document.getElementById("prof");
     console.log(notasAdd);
     fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             cod: cod.value,
-            disc: disc.value,
-            prof: prof.value,
+            nome_disc: nome_disc.value,
+            nome_prof: nome_prof.value,
             nota: notasAdd.value
         })
     })
         .then(response => response.json())
         .then(data => {
-            prof.value = data.prof;
-            notasAdd.value = data.nota;
-            disc.value = data.disc;
-            cod.value = data.cod;
+            cod.textContent = data.cod;
+            nome_disc.textContent = data.nome_disc;
+            nome_prof.textContent = data.nome_prof;
+            notasAdd.textContent = data.nota;
         })
         .catch(error => {
             console.error('Erro:', error);
         });
 });
+
+
+//d
+buttonAddParamVal.addEventListener('click', function(){
+    let notasAddParam = document.getElementById("notasAddParam");
+    let cod = document.getElementById("codParam");
+    let disc = document.getElementById("discParam");
+    let prof = document.getElementById("profParam");
+
+    //Monta o URL com parâmetros codificados
+    const fullURL = `${url}/add/${encodeURIComponent(cod)}/${encodeURIComponent(disc)}/${encodeURIComponent(prof)}/${encodeURIComponent(notasAddParam)}}`;
+
+    fetch (fullURL, {method: 'POST'})
+        .then (response => response.json())
+        .then (data => {
+            cod.value = data.cod;
+            notasAddParam.value = data.notas;
+            disc.value = data.disc;
+            prof.value = data.prof;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+});
+
+//e
+
+buttonUpdatePosition.addEventListener('click', function(){
+    let notaUpdate = document.getElementById("notaUpdate");
+    let indexUpdate = document.getElementById("indexUpdate");   
+
+    fetch(url + indexUpdate.value, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({nota: notaUpdate.value})
+    })
+            .then(response => response.json())
+})

@@ -28,20 +28,27 @@ module.exports = (notas_info) => {
 
     //c)
     router.post('/', (req, res) => {
-        let { cod, disc, prof, nota } = req.body;
+        let { cod, nome_disc, nome_prof, nota } = req.body;
+        let code_int = parseInt(cod);
         let int = parseInt(nota);
         if (isNaN(int)) {
             res.status(400).json(int);
             throw "Non integer value";
         }
         let notas = {
-            cod: cod,
-            disc: disc,
-            prof: prof,
-            nota: intNota
+            cod: code_int,
+            nome_disc: nome_disc,
+            nome_prof: nome_prof,
+            nota: int
         };
         notas_info.push(notas);
         res.send(notas_info);
+    })
+
+    //d)
+    router.post('/:cod/:nome_disc/:nome_prof/:nota', (req, res) => {
+        let  
+        
     })
 
     return router;
