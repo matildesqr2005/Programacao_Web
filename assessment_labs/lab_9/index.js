@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 // Criar uma instância do aplicativo Express
 const app = express();
+const mongoose = require('mongoose');
 
 // Definir a porta onde o servidor vai escutar
 const port = 3000;
@@ -22,26 +23,16 @@ app.use(methodLogger);
 app.use(express.json());
 app.use(cors());
 
+//database
+const url = "mongodb+srv://grupoPWEB:52zfMMKicezh3cOj@disciplinas.uvkvp7l.mongodb.net/";
+const dbName = "node_assessment_lab"; //Colocar o nome da Base de dados em Questão
+const connect = mongoose.connect(url, { dbName: dbName });
 
-app.get('/client/:id', (req, res) => {
-    const clientId = req.params.id;
-    const filePath = path.join(__dirname, 'data.json');
+//router
+const client = require("./Controllers/client");
+app.use("/client", client);
 
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'Erro ao ler o arquivo' });
-        }
-        const jsonData = JSON.parse(data);
-        if (jsonData.clienteId === clientId) {
-            return res.status(200).json(jsonData);
-        } else {
-            return res.status(404).json({ error: 'Cliente não encontrado' });
-        }
-    });
-});
-
-// Iniciar o servidor
-app.listen(port, () => {
-    console.log(`Servidor em http://localhost:${port}`);
-});
-
+connect.then((db) => {
+    console.log("Connected correctly to server");
+    app.listen(port, () => console.log(`Consumos ${port}!`));
+ })
