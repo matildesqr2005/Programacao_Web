@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const client = require('../Models/client');
+const path = require('path');
+const fs = require('fs');
 
 router.get('/:id', (req, res) => {
     const clientId = req.params.id;
