@@ -1,22 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const client = require('../Models/client');
-const path = require('path');
-const fs = require('fs');
 
 router.get('/:id', (req, res) => {
-    const clientId = req.params.id;
-    const filePath = path.join(__dirname, 'data.json');
+    const id = req.params.id;
 
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'Erro ao ler o arquivo' });
-        }
-        const jsonData = JSON.parse(data);
-        if (jsonData.clienteId === clientId) {
-            return res.status(200).json(jsonData);
+    client.find({clienteId : id}).then(result => {
+        if (result != null) {
+            console.log(result);
+            return res.status(200).send(result);
         } else {
-            return res.status(404).json({ error: 'Cliente não encontrado' });
+            return res.status(400).send("Not Found")
         }
     });
 });
