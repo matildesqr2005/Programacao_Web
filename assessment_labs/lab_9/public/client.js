@@ -21,7 +21,9 @@ function fetchClientData(clientId) {
         });
 }
 
+
 function displayClientData(clientData) {
+    console.log(clientData.nome);
     document.getElementById('name').value = clientData.nome;
     document.getElementById('adrStreet').value = clientData.endereco.rua;
     document.getElementById('adrNo').value = clientData.endereco.numero;
