@@ -1,25 +1,77 @@
-document.getElementById('idForm').addEventListener('submit', function(e) {
+let authToken = null;
+
+
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const clientId = document.getElementById('id').value;
-    fetchClientData(clientId);
+    console.log('Formulário de login submetido');
+
+    const email = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+        
+    try {
+        console.log('Enviando credenciais:', { email, password });
+
+        const response = await fetch('http://localhost:3000/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        console.log('Resposta recebida:', response);
+
+        const data = await response.json();
+        
+        if (data.success) {
+            authToken = data.token;
+            localStorage.setItem('token', data.token);
+            document.getElementById('login-section').style.display = 'none';
+            alert('Login realizado com sucesso!');
+        } else {
+            alert(data.error || 'Login falhou');
+        }
+    } catch (error) {
+        alert('Erro durante o login');
+        console.error(error);
+    }
 });
 
-function fetchClientData(clientId) {
-    fetch(`http://localhost:3000/client/${clientId}`)
-        .then(response => {
-            if (!response.ok) {
-                console.log(response.error);
-                throw new Error('Client not found!!');
+document.getElementById('idForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const clientId = document.getElementById('id').value;
+    await fetchClientData(clientId);
+});
+
+async function fetchClientData(clientId) {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+        alert('Por favor, faça login primeiro');
+        return;
+    }
+
+   try {
+        const response = await fetch(`http://localhost:3000/client/${clientId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json' 
             }
-            return response.json();
-        })
-        .then(data => {
-            displayClientData(data);
-        })
-        .catch(error => {
-            alert(error.message);
-            clearDisplay();
         });
+
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+
+        const result = await response.json();
+        if (result.success) {
+            displayClientData(result.data);
+        } else {
+            throw new Error(result.error);
+        }
+    } catch (error) {
+        alert(error.message);
+        clearDisplay();
+    }
 }
 
 function displayClientData(clientData) {

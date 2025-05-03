@@ -1,50 +1,50 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const secretkey = 'secret_key'; 
+const fs = require('fs');
+const path = require('path');
+const secretKey = 'secret_Key'
 
-// exemples
-const users = [
-    {
-        id: 1,
-        nome: "Marcia",
-        email: "marcia@example.com",
-        password: "123"
-    },
-    {
-        id: 2,
-        nome: "Luisa",
-        email: "luisa@example.com",
-        password: "890" 
-    }
-]
+router.use(express.json());
 
-// endpoint
 router.post('/login', (req, res) => {
-    const {email, password} = req.body;
+    const { email, password} = req.body;
 
-    const user = users.find( u => u.email === email && u.password === password);
+    
+    try {
+        const filePath = path.join(__dirname, '../data.json');
+        const data = fs.readFileSync(filePath, 'utf8');
+        const clientData = JSON.parse(data);
+        
+        const user = clientData.users.find( u => u.email === email && u.password === password);
 
-    if (!user){
-        return res.status(401).json({
-            error: "Credenciais inválidas"
+        if (user) {
+            const token = jwt.sign(
+                {
+                    userId: user.id, 
+                    permissao: user.permissao
+                },
+                secretKey,
+                { expiresIn: '30m' }
+            );
+            
+            return res.json({ 
+                success: true,
+                token
+            });
+        }
+        
+        res.status(401).json({ 
+            sucess: false,
+            error: "Credenciais inválidas" 
+        });
+    } catch (error) {
+        console.error('Erro no login:', error);
+        res.status(500).json({ 
+            sucess: false,
+            error: "Erro no servidor" 
         });
     }
-
-    // create token JWT
-    const token = jwt.sign (
-        {
-            id: user.id, 
-            nome: user.nome,
-            email: user.email
-        },
-        secretkey
-    );
-
-    // return token
-    res.status(200).json({
-        token
-    });
 });
 
 module.exports = router;

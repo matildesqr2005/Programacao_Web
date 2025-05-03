@@ -19,8 +19,7 @@ app.use(cors());
 app.use('/client', client);
 
 // autentication
-const authRoutes = require('./Routes/authRoutes');
-app.use('/auth', authRoutes);
+app.use('/auth', require('./Routes/authRoutes'));
 
 // Iniciar o servidor
 app.listen(port, () => {

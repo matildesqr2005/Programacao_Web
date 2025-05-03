@@ -11,13 +11,34 @@ router.get('/:id',  verify_jwt, (req, res) => {
 
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).json({ error: 'Erro ao ler o arquivo' });
+            return res.status(500).json({ 
+                success: false,
+                error: 'Erro ao ler o arquivo' 
+            });
         }
-        const jsonData = JSON.parse(data);
-        if (jsonData.clienteId === clientId) {
-            return res.status(200).json(jsonData);
-        } else {
-            return res.status(404).json({ error: 'Cliente não encontrado' });
+        try { 
+            const jsonData = JSON.parse(data);
+            const cliente = jsonData.clientes.find( c => c.clienteId === clientId);
+
+            if (!cliente) {
+                return res.status(404).json({ 
+                    success: false,
+                    error: 'Cliente não encontrado' 
+                });
+            }
+
+            return res.json({ 
+                success: true,
+                data: cliente 
+            });
+
+
+        }catch (error) {
+            console.error('Erro ao processar dados:', error);
+            return res.status(500).json({ 
+                success: false,
+                error: 'Erro ao processar dados' 
+            });
         }
     });
 });

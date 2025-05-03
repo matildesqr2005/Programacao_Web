@@ -1,21 +1,38 @@
-{
-    "clienteId": "12345",
-    "nome": "João Silva",
-    "endereco": {
-        "rua": "Rua Exemplo",   
-        "numero": "42",
-        "cidade": "Lisboa",
-        "codigoPostal": "1234-567"},
-    "consumo": [
+    {
+        "users": [
         {
-            "mes": "Janeiro",
-            "ano": 2023,
-            "kWhConsumido": 250,
-            "custoTotal": 35.50,
-            "dataLeitura": "2023-01-31"
-        }],
-    "informacoesAdicionais": {
-        "tipoTarifa": "Residencial",
-        "fornecedorEnergia": "Empresa XYZ",
-        "contratoAtivo": true}
+            "id": 1,
+            "email": "user1@exemplo.com",
+            "password": "user123",
+            "permissao": "user"
+        },
+        {
+            "id": 2,
+            "email": "user2@exemplo.com",
+            "password": "user456",
+            "permissao": "user"
+        }
+    ],
+
+    "clientes": [{
+        "clienteId": "12345",
+        "nome": "João Silva",
+        "endereco": {
+            "rua": "Rua Exemplo",   
+            "numero": "42",
+            "cidade": "Lisboa",
+            "codigoPostal": "1234-567"},
+        "consumo": [
+            {
+                "mes": "Janeiro",
+                "ano": 2023,
+                "kWhConsumido": 250,
+                "custoTotal": 35.50,
+                "dataLeitura": "2023-01-31"
+            }],
+        "informacoesAdicionais": {
+            "tipoTarifa": "Residencial",
+            "fornecedorEnergia": "Empresa XYZ",
+            "contratoAtivo": true}
+    }]
 }

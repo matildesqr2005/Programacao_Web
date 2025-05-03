@@ -93,3 +93,84 @@ table {
     background-color: rgb(227, 248, 255);
   }
 
+
+  
+/* Login */
+#login-section {
+    background-color: white;
+    width: 450px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.266);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-section h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#loginForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#loginForm div, div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#loginForm label {
+    color: #2c3e50;
+    font-weight: 500;
+    width: 120px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    margin-left: 20px;
+}
+
+
+
+#loginForm input[type="submit"] ,
+#idForm [type="submit"] {
+    align-self: center;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+    width: auto;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+#loginForm input[type="submit"]:hover,
+#idForm [type="submit"]:hover {
+    background-color: #36688a;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.login-error {
+    color: #e74c3c;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: -10px;
+    display: none;
+}
