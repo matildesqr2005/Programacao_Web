@@ -8,6 +8,7 @@ function fetchClientData(clientId) {
     fetch(`http://localhost:3000/client/${clientId}`)
         .then(response => {
             if (!response.ok) {
+                console.log(response.error);
                 throw new Error('Client not found!!');
             }
             return response.json();
