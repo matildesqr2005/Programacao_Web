@@ -1,4 +1,3 @@
-
 document.getElementById('idForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const clientId = document.getElementById('id').value;
@@ -22,17 +21,15 @@ function fetchClientData(clientId) {
         });
 }
 
-
 function displayClientData(clientData) {
-    console.log(clientData[0].nome);
-    document.getElementById('name').value = clientData[0].nome;
-    document.getElementById('adrStreet').value = clientData[0].endereco.rua;
-    document.getElementById('adrNo').value = clientData[0].endereco.numero;
-    document.getElementById('adrCity').value = clientData[0].endereco.cidade;
-    document.getElementById('adrPostal').value = clientData[0].endereco.codigoPostal;
-    document.getElementById('adtResid').value = clientData[0].informacoesAdicionais.tipoTarifa;
-    document.getElementById('adrProv').value = clientData[0].informacoesAdicionais.fornecedorEnergia;
-    if (clientData[0].informacoesAdicionais.contratoAtivo) {
+    document.getElementById('name').value = clientData.nome;
+    document.getElementById('adrStreet').value = clientData.endereco.rua;
+    document.getElementById('adrNo').value = clientData.endereco.numero;
+    document.getElementById('adrCity').value = clientData.endereco.cidade;
+    document.getElementById('adrPostal').value = clientData.endereco.codigoPostal;
+    document.getElementById('adtResid').value = clientData.informacoesAdicionais.tipoTarifa;
+    document.getElementById('adrProv').value = clientData.informacoesAdicionais.fornecedorEnergia;
+    if (clientData.informacoesAdicionais.contratoAtivo) {
         document.getElementById('adtActive').value = 'Sim';
     } else {
         document.getElementById('adtActive').value = 'Não';
@@ -40,7 +37,7 @@ function displayClientData(clientData) {
 
     const consumoBody = document.getElementById('consumBody');
     consumoBody.innerHTML = ''; 
-    clientData[0].consumo.forEach(item => {
+    clientData.consumo.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${item.mes}</td>
