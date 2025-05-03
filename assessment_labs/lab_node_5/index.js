@@ -18,6 +18,10 @@ app.use(cors());
 // Router
 app.use('/client', client);
 
+// autentication
+const authRoutes = require('./Routes/authRoutes');
+app.use('/auth', authRoutes);
+
 // Iniciar o servidor
 app.listen(port, () => {
     console.log(`Servidor em http://localhost:${port}`);
