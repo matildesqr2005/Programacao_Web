@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const secretKey = 'secret_Key'
 
 const verifyJwt = (req, res, next) => {
     const authHeader = req.headers['authorization'];
@@ -12,7 +11,7 @@ const verifyJwt = (req, res, next) => {
         });
     }
 
-    jwt.verify (token, secretKey, (err, decoded) => {
+    jwt.verify (token, 'accessSecret', (err, decoded) => {
         if(err){
             console.log("Erro de autenticação", err);
             return res.status(401).json({

@@ -23,8 +23,8 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         const data = await response.json();
         
         if (data.success) {
-            authToken = data.token;
-            localStorage.setItem('token', data.token);
+            authToken = data.accessToken;
+            localStorage.setItem('accessToken', data.accessToken);
             document.getElementById('login-section').style.display = 'none';
             alert('Login realizado com sucesso!');
         } else {
@@ -42,8 +42,29 @@ document.getElementById('idForm').addEventListener('submit', async function(e) {
     await fetchClientData(clientId);
 });
 
+async function refreshAcessToken() {
+    try{
+        const response = await fetch(`http://localhost:3000/refresh`, {
+            method:'POST',
+            credentials: 'include'
+        });
+
+        const data = await response.json();
+
+        if(data.accessToken){
+            localStorage.setItem('accessToken', data.accessToken);
+            return data.accessToken;
+        }else{
+            alert("Faça login de novo");
+        }
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
+
 async function fetchClientData(clientId) {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('accessToken');
     
     if (!token) {
         alert('Por favor, faça login primeiro');
@@ -57,6 +78,14 @@ async function fetchClientData(clientId) {
                 'Content-Type': 'application/json' 
             }
         });
+
+        if(response.status === 401){
+            const newAccessToken = await refreshAcessToken();
+            if(newAccessToken)
+                fetchClientData(clientId);
+
+            return;
+        }
 
         if (!response.ok) {
             throw new Error(await response.text());
