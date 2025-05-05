@@ -44,7 +44,7 @@ document.getElementById('idForm').addEventListener('submit', async function(e) {
 
 async function refreshAcessToken() {
     try{
-        const response = await fetch(`http://localhost:3000/refresh`, {
+        const response = await fetch(`http://localhost:3000/auth/refresh`, {
             method:'POST',
             credentials: 'include'
         });
